@@ -82,10 +82,10 @@ class Grid(object):
       elif mode == 'sparse':
         if block.tmp == 'p':
           for n in block.neighbours:
-            if n.parent == block.parent:
-              block.state = 1
-            else:
+            if n.tmp=='p' and (n.parent != block.parent):
               block.state = 0
+            else:
+              block.state = 1
 
 class Block(object):
   def __init__(self, x, y, state):
